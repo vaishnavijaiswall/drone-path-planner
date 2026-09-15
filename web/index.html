@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Drone Delivery Path Planner</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <svg class="brand-icon" width="22" height="22" viewBox="0 0 24 24" fill="none">
+      <circle cx="12" cy="12" r="2.4" fill="currentColor"/>
+      <path d="M12 2v4M12 18v4M2 12h4M18 12h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+      <circle cx="4.5" cy="4.5" r="1.6" fill="currentColor" opacity="0.7"/>
+      <circle cx="19.5" cy="4.5" r="1.6" fill="currentColor" opacity="0.7"/>
+      <circle cx="4.5" cy="19.5" r="1.6" fill="currentColor" opacity="0.7"/>
+      <circle cx="19.5" cy="19.5" r="1.6" fill="currentColor" opacity="0.7"/>
+    </svg>
+    <div>
+      <h1>Drone Delivery Path Planner</h1>
+      <p class="tagline">Grid-based route planning across four search strategies</p>
+    </div>
+  </div>
+  <div class="mode-toggle">
+    <button id="btnDraw" class="mode-btn active" data-mode="obstacle">Draw obstacles</button>
+    <button id="btnStart" class="mode-btn" data-mode="start">Place drone</button>
+    <button id="btnEnd" class="mode-btn" data-mode="end">Place destination</button>
+  </div>
+</header>
+
+<main class="layout">
+
+  <section class="canvas-panel">
+    <canvas id="gridCanvas"></canvas>
+    <div class="legend">
+      <span><i class="swatch swatch-drone"></i>Drone (start)</span>
+      <span><i class="swatch swatch-dest"></i>Destination</span>
+      <span><i class="swatch swatch-obstacle"></i>Obstacle</span>
+      <span><i class="swatch swatch-visited"></i>Explored</span>
+      <span><i class="swatch swatch-path"></i>Flight path</span>
+    </div>
+  </section>
+
+  <aside class="control-panel">
+
+    <div class="panel-block">
+      <label class="panel-label" for="algoSelect">Algorithm</label>
+      <select id="algoSelect">
+        <option value="bfs">Breadth-First Search</option>
+        <option value="dfs">Depth-First Search</option>
+        <option value="dijkstra">Dijkstra's Algorithm</option>
+        <option value="astar" selected>A* Search</option>
+      </select>
+      <p class="algo-desc" id="algoDesc"></p>
+    </div>
+
+    <div class="panel-block button-row">
+      <button id="btnRun" class="btn btn-primary">Plan route</button>
+      <button id="btnCompare" class="btn btn-secondary">Compare all four</button>
+    </div>
+
+    <div class="panel-block button-row">
+      <button id="btnMaze" class="btn btn-ghost">Generate maze</button>
+      <button id="btnClearObstacles" class="btn btn-ghost">Clear obstacles</button>
+      <button id="btnReset" class="btn btn-ghost">Reset grid</button>
+    </div>
+
+    <div class="panel-block">
+      <label class="panel-label" for="speedRange">Animation speed</label>
+      <input type="range" id="speedRange" min="1" max="100" value="60">
+    </div>
+
+    <div class="panel-block stats-block">
+      <span class="panel-label">Flight telemetry</span>
+      <div class="stats-grid">
+        <div class="stat"><span class="stat-label">Cells explored</span><span class="stat-value" id="statExplored">—</span></div>
+        <div class="stat"><span class="stat-label">Path length</span><span class="stat-value" id="statLength">—</span></div>
+        <div class="stat"><span class="stat-label">Execution time</span><span class="stat-value" id="statTime">—</span></div>
+        <div class="stat"><span class="stat-label">Path found</span><span class="stat-value" id="statFound">—</span></div>
+      </div>
+    </div>
+
+    <div class="panel-block chart-block hidden" id="chartBlock">
+      <span class="panel-label">Algorithm comparison</span>
+      <canvas id="compareChart" height="220"></canvas>
+    </div>
+
+  </aside>
+
+</main>
+
+<footer class="statusbar">
+  <span id="statusText">Click the grid to place obstacles, then set the drone and destination.</span>
+</footer>
+
+<script src="chart.umd.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
