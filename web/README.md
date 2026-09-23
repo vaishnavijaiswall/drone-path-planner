@@ -36,7 +36,3 @@ python3 -m http.server 8000
 ```
 
 and visit `http://localhost:8000`.
-
-## Screenshot
-
-_Add a screenshot or short GIF here of the grid mid-animation — this is the single most effective thing you can add to this README for anyone skimming your GitHub._
