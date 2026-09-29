@@ -1,4 +1,4 @@
-🚁 Drone Delivery Path Planner
+# 🚁 Drone Delivery Path Planner
 
 A pathfinding project that simulates autonomous drone navigation on a grid while avoiding obstacles and finding an efficient route from a start point to a destination.
 
@@ -7,7 +7,7 @@ The project is implemented in two versions:
 CLI Version — C-based implementation of pathfinding algorithms
 Web Version — Interactive browser-based visualization using HTML, CSS, and JavaScript
 
-📌 Project Overview
+## 📌 Project Overview
 
 The Drone Delivery Path Planner demonstrates how classical pathfinding algorithms can be used to solve route-planning problems for autonomous drones.
 
@@ -20,9 +20,9 @@ The drone operates on a grid containing:
 
 The algorithms calculate a route from the start point to the destination while avoiding blocked cells.
 
-🛠️ Project Versions
+## 🛠️ Project Versions
 
-💻 1. CLI Version — C
+## 💻 1. CLI Version — C
 
 The CLI version provides a command-line implementation of the pathfinding system using C.
 
@@ -57,7 +57,7 @@ gcc cli/astar.c -o astar
 ./astar
 ```
 
-🌐 2. Web Version — HTML, CSS, JavaScript
+## 🌐 2. Web Version — HTML, CSS, JavaScript
 
 The web version extends the CLI concept into an interactive, browser-based visualizer — built to make the difference between algorithms visible instead of theoretical.
 
@@ -100,7 +100,7 @@ http://localhost:8000
 
 You can also open `web/index.html` directly in a browser.
 
-🧠 Why Four Algorithms in the Web Version
+## 🧠 Why Four Algorithms in the Web Version
 
 The CLI version implements Dijkstra's and A* from scratch. The web version puts all four side by side on the same grid, so the practical difference between them is visible rather than theoretical:
 
@@ -136,6 +136,7 @@ drone-path-planner/
 │   └── README.md
 │
 └── README.md
+  ```
 
 ## 🛠️ Technologies Used
 
