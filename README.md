@@ -4,8 +4,8 @@ A pathfinding project that simulates autonomous drone navigation on a grid while
 
 The project is implemented in two versions:
 
-CLI Version — C-based implementation of pathfinding algorithms
-Web Version — Interactive browser-based visualization using HTML, CSS, and JavaScript
+- **CLI Version** — C-based implementation of pathfinding algorithms
+- **Web Version** — Interactive browser-based visualization using HTML, CSS, and JavaScript
 
 ## 📌 Project Overview
 
